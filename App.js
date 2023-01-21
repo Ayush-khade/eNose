@@ -13,8 +13,6 @@ function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Register} />
-        
-      
       </Stack.Navigator>
     </NavigationContainer>
   );
