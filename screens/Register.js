@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Text, View,TextInput, StyleSheet } from 'react-native';
-import Constants from 'expo-constants';
 
 
 export default class Register extends React.Component {
@@ -59,7 +58,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    paddingTop: Constants.statusBarHeight,
+    paddingTop: 20,
     backgroundColor: '#362287',
     padding: 8,
   },
