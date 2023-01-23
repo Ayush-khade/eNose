@@ -6,23 +6,41 @@ import Login from './screens/Login';
 import Register from './screens/Register';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Stack = createNativeStackNavigator();
+class App extends React.Component {
+  state={
+    isLogin:false
+  }
+  componentDidMount(){
+    AsyncStorage.getItem('credentials').then((data) => {
+      if(data==undefined){
+        this.setState({          
+          isLogin:false,
+        });
+      }
+      else{
+        var token = JSON.parse(data);
+        if(token.username==null || token.password==null ||token.username=="" || token.password==""){
+          this.setState({
+            isLogin:false,
+          });
+        }
+      else{
+        console.log(data);
+        this.setState({
+          isLogin:true,
+        });
+      }}    
+    })
+  }
 
-function App() {
-  //This is Hemant
-
-  React.useEffect(()=>{
-    
-
-  },[])
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Register" component={Register} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+  render(){
+    return (
+      <>
+        {this.state.isLogin?(<Register/>):(<Login/>)}
+      </>
+    );
+}
+  
 }
 
 export default App;

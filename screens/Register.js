@@ -8,7 +8,7 @@ name:"",
 emailID:"",
 password:"",
 confirm_password:"",
-secure:"false"
+secure:false
 
 }
   
