@@ -15,19 +15,19 @@ export default class Login extends React.Component {
     state = {
         username : "",
         password : "",
-    }
+            }
     verifyCred=(x,y)=>{
         console.log("USERNAME::",x);
         console.log("PASSWORD::",y);
         if(x=="" || y==""){ToastAndroid.show("Please Enter the username & password!", ToastAndroid.SHORT);}
         else{
-            if(x=="suyash" && y=="1234"){
+                 if(x=="suyash" && y=="1234"){
                 console.log("SUCCESSFUL");
                 this.props.navigation.navigate('HomeScreen');
-        }
-            else{ToastAndroid.show("Incorrect Credentials", ToastAndroid.SHORT);}
-        }
-    }
+                                             }
+                 else{ToastAndroid.show("Incorrect Credentials", ToastAndroid.SHORT);}
+            }
+                      }
     render(){
         return(
             <View style={{flex:1,alignItems:"center",backgroundColor:"#ffffff"}}>
@@ -47,11 +47,8 @@ export default class Login extends React.Component {
                     value = {this.state.password}
                     placeholder="password"
 		        />
-                </View>
-                
-               
-               
-                <Button
+                </View>            
+               <Button
                     title="Log In"
                     onPress={() => this.verifyCred(this.state.username,this.state.password)}
                 />
