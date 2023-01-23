@@ -8,7 +8,7 @@ name:"",
 emailID:"",
 password:"",
 confirm_password:"",
-secure:false
+secure: true
 
 }
   
@@ -47,7 +47,7 @@ Not registered yet?        Register Here    </Text>
         secureTextEntry={this.state.secure}
  />
 
-             {this.state.password == this.state.confirm_password ? <Text>matched</Text>: "Password did not match..." }
+             {this.state.password == this.state.confirm_password ? <Text>matched</Text>: <Text>"Password did not match..."</Text> }
 
 
 </View>
