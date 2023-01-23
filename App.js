@@ -5,7 +5,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './screens/Login';
 import Register from './screens/Register';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import Before from './screens/Before'
+import After from './screens/After'
 class App extends React.Component {
   state={
     isLogin:false
@@ -36,7 +37,7 @@ class App extends React.Component {
   render(){
     return (
       <>
-        {this.state.isLogin?(<Register/>):(<Login/>)}
+        {this.state.isLogin?(<After/>):(<Before/>)}
       </>
     );
 }
