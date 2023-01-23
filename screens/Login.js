@@ -10,7 +10,7 @@ ToastAndroid,
 
 } from 'react-native';
 import React from 'react';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 export default class Login extends React.Component {
     state = {
         username : "",
@@ -22,9 +22,13 @@ export default class Login extends React.Component {
         if(x=="" || y==""){ToastAndroid.show("Please Enter the username & password!", ToastAndroid.SHORT);}
         else{
                  if(x=="suyash" && y=="1234"){
+                    var credentials={};
+                    credentials.username=this.state.username;
+                    credentials.password=this.state.password;
+                    const jsonValue = JSON.stringify(credentials);
+                    AsyncStorage.setItem('credentials', jsonValue);
                 console.log("SUCCESSFUL");
-                this.props.navigation.navigate('HomeScreen');
-                                             }
+            }
                  else{ToastAndroid.show("Incorrect Credentials", ToastAndroid.SHORT);}
             }
                       }
