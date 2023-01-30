@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Text, View, TextInput, StyleSheet} from 'react-native';
 
-export default class Register extends React.Component {
+export default class SignUp extends React.Component {
   state={
 name:"",
 emailID:"",
