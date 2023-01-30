@@ -36,7 +36,7 @@ class App extends React.Component {
   render(){
     return (
       <>
-        {this.state.isLogin?(<Register/>):(<Login/>)}
+        {this.state.isLogin?(<Login/>):(<Register/>)}
       </>
     );
 }

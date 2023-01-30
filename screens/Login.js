@@ -15,23 +15,47 @@ export default class Login extends React.Component {
     state = {
         username : "",
         password : "",
+        link:"",
             }
-    verifyCred=(x,y)=>{
-        console.log("USERNAME::",x);
-        console.log("PASSWORD::",y);
-        if(x=="" || y==""){ToastAndroid.show("Please Enter the username & password!", ToastAndroid.SHORT);}
-        else{
-                 if(x=="suyash" && y=="1234"){
-                    var credentials={};
-                    credentials.username=this.state.username;
-                    credentials.password=this.state.password;
-                    const jsonValue = JSON.stringify(credentials);
-                    AsyncStorage.setItem('credentials', jsonValue);
-                console.log("SUCCESSFUL");
-            }
-                 else{ToastAndroid.show("Incorrect Credentials", ToastAndroid.SHORT);}
-            }
-                      }
+//    click=(x,y)=>{
+        //console.log("USERNAME::",x);
+        //console.log("PASSWORD::",y);
+        //if(x=="" || y==""){ToastAndroid.show("Please Enter the username & password!", ToastAndroid.SHORT);}
+        //else{
+          //       if(x=="suyash" && y=="1234"){
+            //        var credentials={};
+              //      credentials.username=this.state.username;
+                //    credentials.password=this.state.password;
+                  //  const jsonValue = JSON.stringify(credentials);
+              //      AsyncStorage.setItem('credentials', jsonValue);
+                //console.log("SUCCESSFUL");
+                click=()=>{
+                  var str="https://api.cavyiot.com/login?userid="+this.state.username+"&password="+this.state.password
+                  this.setState({link:str})
+                  console.log(this.state.link)
+                  this.api(str)
+                }
+                
+                  async api(x) {
+
+                    try{
+                      const response = await fetch (x);
+                      const json =await response.json();
+                      if(json.code===401){console.log("incorrect")}
+                      else{console.log("correct")}
+                    } catch (error) {
+                        console.log(error);
+                    }finally {
+                      console.log("done")
+                    }
+                    
+                  }
+                
+                
+            
+                // else{ToastAndroid.show("Incorrect Credentials", ToastAndroid.SHORT);}
+            
+                      
     render(){
         return(
             <View style={{flex:1,alignItems:"center",backgroundColor:"#ffffff"}}>
@@ -54,7 +78,7 @@ export default class Login extends React.Component {
                 </View>            
                <Button
                     title="Log In"
-                    onPress={() => this.verifyCred(this.state.username,this.state.password)}
+                    onPress={() => this.click()}
                 />
                 
             </View>
