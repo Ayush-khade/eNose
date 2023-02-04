@@ -3,7 +3,8 @@ import { Button, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import RNRestart from "react-native-restart";
+import EntypoIcon from "react-native-vector-icons/Entypo";
 const Stack = createNativeStackNavigator();
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           alignItems: 'center',
         }}>
         <Text>Hello, world!</Text>
+        <EntypoIcon name="signal" size={20} />
         <Button title={"LOGOUT"} onPress={userLogout}/>
       </View>
   );
@@ -33,9 +35,9 @@ const userLogout = () => {
   //console.log(jsonValue);
   try { AsyncStorage.clear() } catch (e) { /*console.log(e)*/ }
   //console.log('Done.')
-  // setTimeout(() => {
-  //   RNRestart.Restart();
-  // }, 500);
+  setTimeout(() => {
+    RNRestart.Restart();
+  }, 500);
 }
 
 export default App;

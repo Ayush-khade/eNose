@@ -67,8 +67,7 @@ export default class Login extends Component {
                   .catch(err => {
                     console.log(err.message);
                   });
-              }
-              else{
+              } else {
                 console.log('JSON FILE already WRITTEN!');
                 this.setState({isLoading: false, isLogin: true});
               }
@@ -81,7 +80,12 @@ export default class Login extends Component {
           //this.scanner.reactivate();
 
           if (json.code === 401) {
-            this.setState({username: null, password: null, isLoading: false,scan:true});
+            this.setState({
+              username: null,
+              password: null,
+              isLoading: false,
+              scan: true,
+            });
             // Toast.show({
             //   type: 'error',
             //   position: 'top',
@@ -91,10 +95,20 @@ export default class Login extends Component {
             //   autoHide: true,
             //   topOffset: 30,
             // });
-            this.setState({username: null, password: null, isLoading: false,scan:true});
+            this.setState({
+              username: null,
+              password: null,
+              isLoading: false,
+              scan: true,
+            });
             return;
           } else {
-            this.setState({username: null, password: null, isLoading: false,scan:true});
+            this.setState({
+              username: null,
+              password: null,
+              isLoading: false,
+              scan: true,
+            });
             // Toast.show({
             //   type: 'error',
             //   position: 'top',
@@ -108,7 +122,7 @@ export default class Login extends Component {
         }
       })
       .catch(error => {
-        this.setState({isLoading: false,scan:true});
+        this.setState({isLoading: false, scan: true});
         // Toast.show({
         //   type: 'error',
         //   position: 'top',
@@ -129,7 +143,7 @@ export default class Login extends Component {
           <ActivityIndicator size="large" color="#008b91"/>
         </View>)}*/
     if (this.state.isLogin) {
-      return <After/>;
+      return <After />;
     }
     return (
       <>
