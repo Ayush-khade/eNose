@@ -108,7 +108,7 @@ function SvgComponent() {
             fontVariantEastAsian: "normal",
           }}
         >
-          {"eNose"}
+          {"CavyAI"}
         </TSpan>
       </Text>
       <Text
@@ -123,7 +123,7 @@ function SvgComponent() {
         x={176.667}
         y={60.598}
         fontWeight={400}
-        fontSize={11}
+        fontSize={6.615}
         fontFamily="Calibri"
         fill="#008b91"
         strokeWidth={0.265}
@@ -139,7 +139,7 @@ function SvgComponent() {
             fontVariantEastAsian: "normal",
           }}
         >
-          {"By CavyAI"}
+          {"Powered by CavyIoT"}
         </TSpan>
       </Text>
     </Svg>
