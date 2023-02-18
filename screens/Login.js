@@ -1,12 +1,12 @@
 import { Image } from 'react-native';
 import {
-StyleSheet,
-Text,
-View,
-TextInput,
-TouchableOpacity,
-Button,
-ToastAndroid,
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+  Button,
+  ToastAndroid,
 
 } from 'react-native';
 import React from 'react';
@@ -39,9 +39,9 @@ export default class Login extends React.Component {
   };
   render() {
     return (
-      <View style={{flex: 1, alignItems: 'center', backgroundColor: '#ffffff'}}>
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-          <Text style={{fontSize: 20, color: '#717ade', margin: 10}}>
+      <View style={{ flex: 1, alignItems: 'center', backgroundColor: '#ffffff' }}>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text style={{ fontSize: 20, color: '#717ade', margin: 10 }}>
             Login
           </Text>
           <TextInput
@@ -52,7 +52,7 @@ export default class Login extends React.Component {
               borderColor: '#000000',
               margin: 5,
             }}
-            onChangeText={val => this.setState({username: val})}
+            onChangeText={val => this.setState({ username: val })}
             value={this.state.username}
             placeholder="username"
           />
@@ -65,7 +65,7 @@ export default class Login extends React.Component {
               borderColor: '#000000',
               margin: 5,
             }}
-            onChangeText={val => this.setState({password: val})}
+            onChangeText={val => this.setState({ password: val })}
             value={this.state.password}
             placeholder="password"
           />

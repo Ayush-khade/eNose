@@ -7,40 +7,41 @@ import Register from './screens/Register';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 class App extends React.Component {
-  state={
-    isLogin:false
+  state = {
+    isLogin: false
   }
-  componentDidMount(){
+  componentDidMount() {
     AsyncStorage.getItem('credentials').then((data) => {
-      if(data==undefined){
-        this.setState({          
-          isLogin:false,
+      if (data == undefined) {
+        this.setState({
+          isLogin: false,
         });
       }
-      else{
+      else {
         var token = JSON.parse(data);
-        if(token.username==null || token.password==null ||token.username=="" || token.password==""){
+        if (token.username == null || token.password == null || token.username == "" || token.password == "") {
           this.setState({
-            isLogin:false,
+            isLogin: false,
           });
         }
-      else{
-        console.log(data);
-        this.setState({
-          isLogin:true,
-        });
-      }}    
+        else {
+          console.log(data);
+          this.setState({
+            isLogin: true,
+          });
+        }
+      }
     })
   }
 
-  render(){
+  render() {
     return (
       <>
-        {this.state.isLogin?(<Login/>):(<Register/>)}
+        {this.state.isLogin ? (<Login />) : (<Register />)}
       </>
     );
-}
-  
+  }
+
 }
 
 export default App;
